@@ -836,7 +836,7 @@ input[type="checkbox"]#component-toggle:checked{
 /* Beating header */
 
 .beating {
-    margin: .25em;
+    /* margin: .25em; */
     animation: .8s infinite beats;
   }
   
