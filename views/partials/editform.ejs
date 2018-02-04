@@ -1,0 +1,29 @@
+<!-- edit playlist form -->
+<div id="edit-pl-form-wrapper" class="flexCol hide-overflow closed">
+    <div class="flexRow spread-content align-center form-head">
+        <button id="close_edit_pl_form"></button>
+    </div>
+    <form id="edit-pl-form" class="flexCol light-padded hide-overflow">
+        <div>
+            <input type="hidden" name="playlistId" value="">
+            <input type="text" name="playlistName" value="">
+        </div>
+        <br>
+        <div>
+            <div class="flexRow spread-content WrapRow hide-overflow">
+                <button type="button" class="open-uploads">Add tracks</button>
+                <input type="file" multiple class="uploads" name="uploads" hidden>
+                <span>Total files size:
+                    <span class="total-upload-size">0</span>
+                </span>
+            </div>
+            <hr>
+        </div>
+        <div class="uploadCandidates" class="auto-overflow"></div>
+        <br>
+        <div class="submit_pl_wrapper">
+            <button type="submit" class='submit_button light-padded'>Submit Changes</button>
+            <button type="button" id='delete_pl_button' class="light-padded">Delete Playlist</button>
+        </div>
+    </form>
+</div>

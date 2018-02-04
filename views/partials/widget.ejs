@@ -1,0 +1,105 @@
+<div id="widget-wrapper" class="flexCol flex12">
+
+    <!-- widget head-component -->
+    <section id="widget-head" class="flexRow align-center light-padded spread-content">
+        <div class="flexRow spread-content align-center">
+            <button id="toggle_pl_view"></button>
+            <h3 id="widget-caption">Widget</h3>
+        </div>
+        <input type="checkbox" id="component-toggle">
+    </section>
+
+    <!-- widget body-component -->
+    <section id="widget-body" class="flexRow flex11">
+
+        <!-- player -->
+        <div id="player" class="flexCol flex1Animate hide-overflow">
+            <!--album art-->
+            <div id="albumArt" class="flexRow flex8 center-content hide-overflow">
+                <div class='wave'></div>
+                <div class='wave'></div>
+                <div class='wave'></div>
+                <span id="track_title" class="trackInfo"></span>
+                <span id="track_artist" class="trackInfo"></span>
+            </div>
+            <!--audio element main controller-->
+            <div id="playback-wrapper" class="flex2 light-padded flexRow align-center center-content">
+                <div class="flexRow align-center center-content fullwidth relative">
+                    <audio id="playback" src="" controls>
+                        This app plays mp3 files only! if you see this message, your browser does not support html5 audio. Please update.
+                    </audio>
+                </div>
+            </div>
+            <!--dynamic playlist-->
+            <div id="current_playlist">
+                <!--audio element secondary controller-->
+                <div id="secondary-playback-controller">
+                    <button id="prev"></button>    
+                    <button id="pause"></button>    
+                    <button id="play"></button>    
+                    <button id="next"></button>    
+                </div>                    
+                <div id="container" class="light-padded">
+                    <div class="flexRow center-content">
+                        <h3>No Playlist Loaded</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- playlists-container -->
+        <div id="playlists-container" class="flexCol flex0Animate hidden hide-overflow">
+            <div id="dynamic_header" class="flexRow light-padded center-content">
+                <h4 id="header-browse">Browse</h4>
+                <input id="search_pl" type="text" placeholder="Playlist name">
+                <h4 id="header-create" class="hidden">Create</h4>
+                <h4 id="header-edit" class="hidden">Edit</h4>
+            </div>
+            <!-- playlist vinyles -->
+            <div class="vinyles flexRow flex1Animate align-start WrapRow scroll-overflow">
+                <div id="add-new-pl"></div>
+                <%if(typeof Playlists !== 'undefined' && Playlists.length > 0 ){%>
+                    <%Playlists.forEach(function(pl){%>
+                        <div class="loadPlaylist" id="<%=pl._id%>" data-plname="<%=pl.Name%>">
+                            <div id="<%=pl._id%>" data-plname="<%=pl.Name%>" class='pl-vinyle'></div>
+                            <div data-plId="<%=pl._id%>" data-plname="<%=pl.Name%>" class="editButton"></div>
+                            <span>
+                                <%=pl.Name%>
+                            </span>
+                        </div>
+                        <%})%>
+                            <%}%>
+                                <%- include('editform') %>
+
+            </div>
+
+            <!-- new playlist form -->
+            <div class="form-wrapper flexCol flex0Animate hidden hide-overflow">
+                <div class="flexRow spread-content align-center">
+                    <button id="close_new_pl_form"></button>
+                </div>
+                <form id="create-pl-form" class="flexCol light-padded hide-overflow">
+                    <div>
+                        <input type="text" name="playlistName" placeholder="Playlist Name">
+                    </div>
+                    <br>
+                    <div>
+                        <div class="flexRow spread-content WrapRow hide-overflow">
+                            <button type="button" class="open-uploads">Upload tracks</button>
+                            <input type="file" multiple class="uploads" name="uploads" hidden>
+                            <span>Total files size:
+                                <span class="total-upload-size">0</span>
+                            </span>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="uploadCandidates" class="auto-overflow"></div>
+                    <br>
+                    <div class="submit_pl_wrapper">
+                        <button class='submit_button light-padded' type="submit">Create Playlist</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>

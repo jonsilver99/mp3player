@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+    <title>MP3-Player by John Silver</title>
+    <script>
+        var GlobalPlayLists = <%- JSON.stringify(Playlists) %>;
+    </script>
+</head>
+
+<body>
+    <div id="main-ctr" class="flexCol">
+        <!-- Header -->
+        <header class="flexRow flex2 align-center">
+            <div id="headCaption">
+                <h1 id="beats">Vibeats Player</h1>
+                <h2 id="byJohn">By John Silverstein</h1>
+            </div>
+            <div id="hidden-playback-controllers" class="hidden"></div>
+            <div id="uploadProgress">
+                <div class="progress-bar" role="progressbar"></div>
+            </div>
+        </header>
+
+        <!-- widget -->
+        <%- include('partials/widget') %>
+
+        <!-- footer -->
+        <footer class="flex1">
+            <script src="/assets/js/bundle.js"></script>
+        </footer>
+    </div>
+</body>
+
+</html>
